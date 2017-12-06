@@ -25,7 +25,7 @@ SECRET_KEY = 'pkn3mt-=2r=74t+b1th-3zn(gxwxwlggxx2tbz&qvhgsimx6xs'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(' ')
 
 
 # Application definition
@@ -79,8 +79,10 @@ WSGI_APPLICATION = 'django_hotels.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'hoteldb',
-        'HOST': 'localhost',
+        'NAME': os.environ.get('DB_NAME', 'hotelsdb'),
+        'HOST': os.environ.get('DB_HOST', 'localhost'),
+        'USER': os.environ.get('DB_USER', ''),
+        'PASSWORD': os.environ.get('DB_PASS', ''),
         'PORT': 5432,
         'TEST': {
             'NAME': 'hoteltest'

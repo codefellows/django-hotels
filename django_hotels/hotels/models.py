@@ -11,6 +11,11 @@ class Hotel(models.Model):
     rating = models.IntegerField()
     is_open = models.BooleanField(default=True)
 
+    class Meta:
+        permissions = (
+            ('view_hotel', 'Can see the page that lists hotels.'),
+        )
+
     def __repr__(self):
         return f'<Hotel: { self.name } | location - { self.location }>'
 

@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from django_hotels.views import home_view
+from django_hotels.views import home_view, CodyView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', home_view, name='home'),
     url(r'^employees/', include('registration.backends.hmac.urls')),
+    url(r'^forcody', CodyView.as_view(), name='cody')
 ]
