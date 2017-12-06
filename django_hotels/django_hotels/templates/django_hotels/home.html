@@ -1,6 +1,7 @@
 {% extends 'django_hotels/base.html' %}
 
 {% block somecontent %}
+<h1>Home page</h1>
 <ul>
     {% for hotel in hotels %}
     <li>{{ hotel.name }}</li>

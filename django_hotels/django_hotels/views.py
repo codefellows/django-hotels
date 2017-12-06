@@ -6,8 +6,8 @@ from django.views.generic import ListView
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 
 
-@login_required(login_url=reverse_lazy('auth_login'))
-@permission_required('hotels.view_hotel', login_url='/employees/login/')
+# @login_required(login_url=reverse_lazy('auth_login'))
+# @permission_required('hotels.view_hotel', login_url='/employees/login/')
 def home_view(request):
     """The home page."""
     hotels = Hotel.objects.all()
